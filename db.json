@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": 3,
+      "completed": false,
+      "todo": "Learn react js"
+    },
+    {
+      "id": 4,
+      "completed": true,
+      "todo": "Buy the groceries"
+    },
+    {
+      "id": 5,
+      "completed": true,
+      "todo": "Fix the bathtub"
+    },
+    {
+      "completed": true,
+      "todo": "eyyyy",
+      "id": 6
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+.App {
+  margin-top: 10%;
+  margin-left: 39%;
+}
+
+.todos {
+  border: solid 1px gray;
+  border-radius: 30px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+  padding: 25px;
+  width: 300px;
+}
+
+.todos h1 {
+  font-family: fantasy;
+  text-align: center;
+  font-weight: 200;
+  border-bottom: 2px solid gray;
+  padding-bottom: 3px;
+}
+
+.search-todos {
+  border-bottom: 2px solid gray;
+  padding-bottom: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.search-todos input {
+  width: 90%;
+  margin-left: 15px;
+  height: 35px;
+  padding: 5px;
+  border-radius: 30px;
+  border: 2px solid rgba(128, 128, 128, 0.548);
+}
+
+.todos ul {
+  list-style: none;
+}
+
+.todos li {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.todos span {
+  font-size: 18px;
+}
+
+.todos button {
+  width: 40px;
+  background-color: transparent;
+  border: none;
+}
+
+.new-todo h1 {
+  border-top: 2px solid gray;
+  padding: 5px;
+  border-bottom: none;
+}
+
+.add-todo-input {
+  width: 70%;
+  margin-left: 15px;
+  height: 35px;
+  padding: 7px;
+  border-radius: 30px;
+  border: 2px solid rgba(128, 128, 128, 0.548);
+}
