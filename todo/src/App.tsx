@@ -7,6 +7,7 @@ function App() {
   const [todo, setTodos] = useState([])
   const [search, setSearchTodo] = useState('')
 
+  // const filteredtodos = todo.filter(searchtodo =>(searchtodo => searchtodo.text.toLowerCase().includes(search))
 
 
   function toggle(id: number) {
@@ -38,19 +39,19 @@ function App() {
     setTodos(CopyOfTodos)
   }
 
-  function addtodo(text: string) {
 
-    let NewTodo = {
-      completed: false,
-      todo: text
+  function addtodo(text: string) {
+    let newtodo = {
+      todo: text,
+      completed: false
     }
 
-    fetch('http://localhost:3500/todos', {
+    fetch(`http://localhost:3500/todos`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(NewTodo)
+      body: JSON.stringify(newtodo)
     })
       .then(resp => resp.json())
       .then(NewTodoFromServer => setTodos([...todo, NewTodoFromServer]))
@@ -71,6 +72,7 @@ function App() {
             type="text"
             name='text'
             placeholder='Search todo...'
+
 
           />
 
