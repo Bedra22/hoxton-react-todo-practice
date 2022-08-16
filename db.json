@@ -7,7 +7,7 @@
     },
     {
       "id": 4,
-      "completed": true,
+      "completed": false,
       "todo": "Buy the groceries"
     },
     {
@@ -16,8 +16,8 @@
       "todo": "Fix the bathtub"
     },
     {
-      "completed": true,
-      "todo": "eyyyy",
+      "todo": "no waay",
+      "completed": false,
       "id": 6
     }
   ]

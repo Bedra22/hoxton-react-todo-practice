@@ -5,42 +5,42 @@ import './App.css'
 function App() {
 
   const [todo, setTodos] = useState([])
-  const [search, setSearchTodo] = useState('')
+  const [searching, setSearsearchinghTodo] = useState('')
 
-  // const filteredtodos = todo.filter(searchtodo =>(searchtodo => searchtodo.text.toLowerCase().includes(search))
+  const filteredTodo = todo.filter(searchTodo => searchTodo.todo.toLowerCase().includes(searching))
 
 
   function toggle(id: number) {
 
-    let CopyOfTodos = structuredClone(todo)
+    let copyOfTodos = structuredClone(todo)
 
-    const FindMatch = CopyOfTodos.find(todos => todos.id === id)
-    FindMatch.completed = !FindMatch.completed
+    const findMatch = copyOfTodos.find(todos => todos.id === id)
+    findMatch.completed = !findMatch.completed
 
     fetch(`http://localhost:3500/todos/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(FindMatch)
+      body: JSON.stringify(findMatch)
     })
 
-    setTodos(CopyOfTodos)
+    setTodos(copyOfTodos)
   }
 
-  function Delete(id: number) {
+  function deleteTodo(id: number) {
 
-    let CopyOfTodos = todo.filter(todos => todos.id !== id)
+    let copyOfTodos = todo.filter(todos => todos.id !== id)
 
     fetch(`http://localhost:3500/todos/${id}`, {
       method: 'DELETE'
     })
 
-    setTodos(CopyOfTodos)
+    setTodos(copyOfTodos)
   }
 
 
-  function addtodo(text: string) {
+  function addTodo(text: string) {
     let newtodo = {
       todo: text,
       completed: false
@@ -72,7 +72,9 @@ function App() {
             type="text"
             name='text'
             placeholder='Search todo...'
-
+            onChange={event => {
+              setSearchTodo(event.target.value)
+            }}
 
           />
 
@@ -80,7 +82,7 @@ function App() {
         <div>
           <ul>
             {
-              todo.map(alltodos => (
+              filteredTodo.map(alltodos => (
                 <li key={alltodos.id}  >
                   <span
                     className={alltodos.completed ? 'completed' : ''}
@@ -92,7 +94,7 @@ function App() {
                   </span>
                   <button
                     onClick={() => {
-                      Delete(alltodos.id)
+                      deleteTodo(alltodos.id)
                     }}
                   >🗑️</button>
                 </li>
@@ -106,7 +108,7 @@ function App() {
             <form
               onSubmit={event => {
                 event.preventDefault()
-                addtodo(event.target.new.value)
+                addTodo(event.target.new.value)
               }}
             >
               <input
